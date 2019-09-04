@@ -1,0 +1,11 @@
+{% extends "template.html" %}
+{% block login_url %}{{url}}{% endblock %}
+{% block login_text %}{{url_string}}{% endblock %}
+{% block content %}
+<h1 class="w3-text-teal"> Search Anagram </h1>
+
+<form method="post" action="">
+    <input type="text" name="word" value=" "><br><br>
+    <input type="submit" value="Submit"><br>
+</form>
+{% endblock %}

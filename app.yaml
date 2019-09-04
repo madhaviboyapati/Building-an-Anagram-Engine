@@ -1,0 +1,29 @@
+runtime: python27
+api_version: 1
+threadsafe: true
+
+libraries:
+- name: jinja2
+  version: latest
+
+handlers:
+- url: /css
+  static_dir: css
+
+- url: /
+  script: home.app
+
+- url: /addanagram
+  script: addanagram.app
+  login: required
+
+- url: /subanagram
+  script: subanagram.app
+  login: required
+
+- url: /uploadanagram
+  script: uploadanagram.app
+  login: required
+
+- url: /upload
+  script: uploadanagram.app

@@ -1,0 +1,30 @@
+{% extends "template.html" %}
+{% block login_url %}{{url}}{% endblock %}
+{% block login_text %}{{url_string}}{% endblock %}
+{% block content %}
+{%if current_user %}
+<h1 class="w3-text-teal">Welcome {{current_user.email_address}}</h1>
+<!--{% if user %}-->
+<!--<p>Hello {{ user.email() }} welcome to the application</p>-->
+<!--{% else %}-->
+<!--<p>Hello guest welcome to the application</p>-->
+<!--{% endif %}-->
+<!--<p>you can {{ url_string }} <a href='{{ url }}'>here</a></p>-->
+<h2>Search anagram</h2>
+{%if error %}<p style="color: red;">No anagrams found</p>{% endif %}
+<form method="post" action="">
+    <input type="text" name="word" pattern="[A-Za-z]+" title="text only" required><br><br>
+    <input type="submit" value="Submit"><br>
+</form>
+<br>
+<ul>
+    {% for val in anagrams %}
+    <li>{{ val }}</li>
+    {% endfor %}
+</ul>
+Word count: {{current_user.count_word}} | Anagram count : {{current_user.count_anagram}}
+{% else %}
+    <h1  class="w3-text-teal">Welcome, please login to view anagrams</h1>
+{% endif %}
+{% endblock %}
+
